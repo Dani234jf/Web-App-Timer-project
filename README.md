@@ -29,7 +29,8 @@ It was also a great chance to explore design and frontend development practices 
 
 * Click the link below to run the website, or clone this repository and open the `index.html` file on your computer.
 <br>
-[Timer WebApp Link](https://dani234jf.github.io/Web-App-Timer-project/) Click here to visit the website
+
+[Timer WebApp Link](https://dani234jf.github.io/Web-App-Timer-project)
 
 <br><br>
 
