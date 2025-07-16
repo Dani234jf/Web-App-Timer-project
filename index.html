@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&family=Josefin+Slab:ital,wght@0,100..700;1,100..700&display=swap" rel="stylesheet">
+    <title>Timer WebApp</title>
+    <link href="style.css" rel="stylesheet" >
+</head>
+<body>
+    <div id="info-popup">2h30min</div>
+    <main>
+        <button id="help-button"><img src="./Assets/help.svg" alt=""></button>
+        <button id="switchModeButton" class="no-styles-button">
+            <img src="./Assets/swithc.svg" alt="">
+        </button>
+        <p id="time-state">Focus Time</p>
+        <div id="timer">
+            <div id="outer-circle"></div>
+            <div id="inner-circle"></div>
+            <div id="timer-text">
+                <input id="input-minutes" type="number" placeholder="00">
+                <p>:</p>
+                <input id="input-seconds" type="number" placeholder="00">
+            </div>
+            <p id="max-time">35:00</p>
+        </div>
+        <button green id="start-timer">
+            <img src="./Assets/play.svg" alt="">
+            <p>START</p>
+        </button>
+        <button red id="end-timer">
+            <img src="./Assets/stop.svg" alt="">
+            <p>STOP</p>
+        </button>
+    </main>
+
+    <section id="help-section">
+        <div>
+            <h2>Help</h2>
+            <button id="close-help-section" class="no-styles-button"><img src="./Assets/stop.svg" alt=""></button>
+        </div>
+        <div class="help-card">
+            <img src="./Assets/picture-help-1.png" alt="">
+            <div>
+                <h3>Focus / Break Times</h3>
+                <p>Click the switch button to toggle between ”Focus Time” and “Break Time”.</p>
+            </div>
+        </div>
+        <div class="help-card">
+            <img src="./Assets/picture-help-2.png" alt="">
+            <div>
+                <h3>Custom Times</h3>
+                <p>Click the time input to set a custom time. After using it, it will appear in the session buttons.</p>
+            </div>
+        </div>
+        <div class="help-card">
+            <img src="./Assets/picture-help-3.png" alt="">
+            <div>
+                <h3>Session Times</h3>
+                <p>Select a duration by clicking on the time buttons. Each mode allows you to choose one time.</p>
+            </div>
+        </div>
+    </section>
+
+    <div id="help-section-background"></div>
+    
+    <section id="section-times">
+        <div id="msg">
+            <h3>Focus Time is Active</h3>
+            <p>Please disbale the focus mode or wait until the time ends.</p>
+        </div>
+        <div id="blur-content">
+            <h2>Section Times</h2>
+            <div class="sub-title">
+                <img src="./Assets/focusTime.svg" alt="">
+                <h3>Focus Times</h3>
+            </div>
+            <div class="buttons" id="focus-buttons">
+                <button class="selected"><p>60:00</p></button>
+                <button><p>45:00</p></button>
+                <button><p>35:00</p></button>
+                <button><p>25:00</p></button>
+            </div>
+            <hr>
+            <div class="sub-title">
+                <img src="./Assets/breakTime.svg" alt="">
+                <h3>Break Times</h3>
+            </div>
+            <div class="buttons" id="break-buttons" >
+                <button class="selected"><p>35:00</p></button>
+                <button><p>25:00</p></button>
+                <button><p>15:00</p></button>
+                <button><p>05:00</p></button>
+            </div>
+        </div>
+    </section>
+    
+    <section id="section-weekly-report">
+        <h2>Weekly Report</h2>
+        <div class="content">
+            <div id="graph-container">
+                <div id="bars">
+                    <div class="graph-bar">
+                        <p>2h30m</p>
+                        <div></div>
+                    </div>
+                    <div class="graph-bar">
+                        <p>2h30m</p>
+                        <div></div>
+                    </div>
+                    <div class="graph-bar">
+                        <p>2h30m</p>
+                        <div></div>
+                    </div>
+                    <div class="graph-bar">
+                        <p>2h30m</p>
+                        <div></div>
+                    </div>
+                    <div class="graph-bar">
+                        <p>2h30m</p>
+                        <div></div>
+                    </div>
+                    <div class="graph-bar">
+                        <p>2h30m</p>
+                        <div></div>
+                    </div>
+                    <div class="graph-bar">
+                        <p>2h30m</p>
+                        <div></div>
+                    </div>
+                    <div class="graph-bar">
+                        <p>2h30m</p>
+                        <div></div>
+                    </div>
+                    <div class="graph-bar">
+                        <p>2h30m</p>
+                        <div></div>
+                    </div>
+                    <div class="graph-bar">
+                        <p>2h30m</p>
+                        <div></div>
+                    </div>
+                </div>
+                <div id="bottom-bar"></div>
+                <div id="numbers">
+                    <div><p>1</p></div>
+                    <div><p>2</p></div>
+                    <div><p>3</p></div>
+                    <div><p>4</p></div>
+                    <div><p>5</p></div>
+                    <div><p>6</p></div>
+                    <div><p>7</p></div>
+                    <div><p>8</p></div>
+                    <div><p>9</p></div>
+                    <div><p>10</p></div>
+                </div>
+                <p>Focus Time per Day <span> - Last 10 Days</span></p>
+            </div>
+            <div id="day-stats">
+                <div class="sub-title">
+                    <img src="./Assets/stats.svg" alt="">
+                    <h3>Current Day Stats</h3>
+                </div>
+                <div class="stat">
+                    <img src="./Assets/focusTime.svg" alt="">
+                    <p>Focus Time</p>
+                    <p class="value">1h 32min</p>
+                </div>
+                <div class="stat">
+                    <img src="./Assets/breakTime.svg" alt="">
+                    <p>Break Time</p>
+                    <p class="value">0h 19min</p>
+                </div>
+                <div class="stat">
+                    <img src="./Assets/reload.svg" alt="">
+                    <p>Focus Cycles</p>
+                    <p class="value">3</p>
+                </div>
+                <div class="stat">
+                    <img src="./Assets/reload.svg" alt="">
+                    <p>Break Cycles</p>
+                    <p class="value">1</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <p>Designed and developed by Daniel Almeida</p>
+        <div>
+            <img src="./Assets/github.svg" alt="">
+            <p>My GitHub: <a href="https://github.com/Dani234jf">https://github.com/Dani234jf</a></p>
+        </div>
+    </footer>
+</body>
+<script src="script.js"></script>
+</html>
