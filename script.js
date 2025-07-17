@@ -33,12 +33,6 @@ let breakButtonsText = ["35:00", "25:00", "15:00", "05:00"];
 let hoursFocusTimeGraph = [0,0,0,0,0,0,0,0,0,0];
 let currentDayStats = [0,0,0,0];
 
-/*
-*
-* TODO: Add hero section and msgs when the time ends or other
-*
-*/
-
 class Time {
     constructor(minutes = 0, seconds = 0) {
         this.minutes = minutes;
