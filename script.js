@@ -210,7 +210,6 @@ const setCurrentTimeOfTimer = () => {
         let initialTimeInDecimal = Number(currentTimer.minutes) + (Number(currentTimer.seconds) / 60);
         let timeInDecimal = initialTimeInDecimal - ( elapsedTime / 60 );
         if (timeInDecimal < 0) {
-            setElapsedTimeStats();
             clearInterval(timerIntreval);
             onTimerDeactivated(EndTimeMode.TIME_END);
             return;
