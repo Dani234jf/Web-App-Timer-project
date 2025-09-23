@@ -27,6 +27,7 @@ const daysGraphNumbers = Array.from(document.querySelectorAll("#numbers p"));
 const currentDayElementStats = Array.from(document.querySelectorAll(".stat > .value"));
 let daysGraphArray = [];
 let hoverGraphBar = null;
+let timerEndAudio = new Audio("./Assets/notification-sound-effect.mp3");
 
 let focusButtonsText = ["60:00", "45:00", "35:00", "25:00"];
 let breakButtonsText = ["35:00", "25:00", "15:00", "05:00"];
@@ -88,6 +89,11 @@ class TimeMode {
             this.#timeMode = "FocusMode";
         }
     }
+}
+
+const EndTimeMode = {
+    STOP_BUTTON: "STOP",
+    TIME_END: "TIME_END"
 }
 
 let timeMode = new TimeMode("FocusMode");
@@ -206,7 +212,7 @@ const setCurrentTimeOfTimer = () => {
         if (timeInDecimal < 0) {
             setElapsedTimeStats();
             clearInterval(timerIntreval);
-            onTimerDeactivated();
+            onTimerDeactivated(EndTimeMode.TIME_END);
             return;
         }
 
@@ -233,7 +239,7 @@ const onTimerActivated = () => {
     setCurrentTimeOfTimer();
 };
 
-const onTimerDeactivated = () => {
+const onTimerDeactivated = (endTimeMode) => {
     currentTimer = null;
     startTime = null;
     document.querySelector("body").removeAttribute("active");
@@ -249,6 +255,9 @@ const onTimerDeactivated = () => {
     timerCircle.style.maskImage = `conic-gradient(from 90deg, transparent 0deg 0deg, black 0.01deg 180deg)`;
     timerCircle.style.webkitMaskImage = `conic-gradient(from 90deg, transparent 0deg 0deg, black 0.01deg 180deg)`;
     setInputText();
+    if(endTimeMode == EndTimeMode.TIME_END) {
+        timerEndAudio.play();
+    }
 };
 
 const generateDaysArray = () => {
@@ -500,7 +509,7 @@ buttonStart.addEventListener("click", () => {
 });
 
 buttonStop.addEventListener("click", () => {
-    onTimerDeactivated();
+    onTimerDeactivated(EndTimeMode.STOP_BUTTON);
 })
 
 document.querySelector("body").addEventListener("mousemove", (e) => {
