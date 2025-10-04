@@ -489,7 +489,7 @@ body:not([active]) {
     #bars {
         margin-top: 5rem;
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
         align-items: flex-end;
 
         .graph-bar {
@@ -700,3 +700,4 @@ hr {
         justify-content: space-around;
     }
 }
+
